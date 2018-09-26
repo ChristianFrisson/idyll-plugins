@@ -22,6 +22,10 @@ module.exports = (ast) => {
         tags[type].push(AST.createNode('li', {}, [element]));
         h = type;
     });
+    if(h === 'h2' && tags['h2'] !== []){
+        tags['h1'].push(AST.createNode('ul', {id: 'list'}, tags['h2']));
+        tags['h2'] = [];
+    }
     let list = AST.createNode('ul', {id: 'list'}, tags['h1'])
     let ASTwithID = ast;
     ASTwithID = AST.modifyNodesByName(ASTwithID, 'h1', (node) => {
