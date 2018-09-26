@@ -10,7 +10,7 @@ module.exports = (ast) => {
     tags['h1'] = [];
     tags['h2'] = [];
     headings.forEach((node) => {
-        let text = AST.getText(node);
+        let text = node[2][0];//AST.getText(node);
         let href = '#' + text.replace(/['"]+/g, '');
         let type = node[0].toLowerCase();
         let element = AST.createNode('a', {href}, [text]);
