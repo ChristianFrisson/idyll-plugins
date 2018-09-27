@@ -26,7 +26,7 @@ module.exports = (ast) => {
         let href = '#' + text.replace(/['"]+/g, '');
         let type = node[0].toLowerCase();
         let element = AST.createNode('a', { href }, [text]);
-        console.log(node, text, href, type, element)
+        //console.log(node, text, href, type, element)
 
         if (h !== type && type === 'h1') {
             tags[type].push(AST.createNode('ul', { id: 'list' }, tags['h2']));
