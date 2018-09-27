@@ -1,6 +1,8 @@
 const AST = require('idyll-ast');
 
 module.exports = (ast) => {
+    var timeBegin = process.hrtime();
+    console.log('Generating table of contents...');
     let headings = AST.findNodes(ast,(node) => {
         let type = node[0].toLowerCase();
         return type === 'h1' || type == 'h2';
@@ -41,5 +43,8 @@ module.exports = (ast) => {
     ASTwithID = AST.modifyNodesByName(ASTwithID, 'TableOfContents', (node) => {
         return textContainer;
     });
+    var timeEnd = process.hrtime(timeBegin);
+    var timeTaken = parseFloat(timeEnd[0]) + parseFloat(timeEnd[1]) / Math.pow(10, 9);
+    console.log('Generating table of contents done in %f seconds', timeTaken);
     return ASTwithID;
 };
