@@ -42,11 +42,11 @@ module.exports = (ast) => {
     let list = AST.createNode('ul', { id: 'list' }, tags['h1'])
     let ASTwithID = ast;
     ASTwithID = AST.modifyNodesByName(ASTwithID, 'h1', (node) => {
-        node = AST.setProperty(node, 'id', AST.getText(node))
+        node = AST.setProperty(node, 'id', getText(node))
         return node;
     });
     ASTwithID = AST.modifyNodesByName(ASTwithID, 'h2', (node) => {
-        node = AST.setProperty(node, 'id', AST.getText(node))
+        node = AST.setProperty(node, 'id', getText(node))
         return node;
     });
     let tocTitle = AST.createNode('h1', { id: 'tableofcontents' }, ['Table Of Contents']);
