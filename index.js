@@ -1,5 +1,9 @@
 const AST = require('idyll-ast');
 
+const formatId = function(text) {
+    return text.replace(/['"]+/g, '').replace(/[\W_]+/g,"-");
+}
+
 const getText = function (node) {
     const texts = [];
     AST.walkNodes(AST.getChildren(node), (n) => {
@@ -23,7 +27,7 @@ module.exports = (ast) => {
     tags['h2'] = [];
     headings.forEach((node) => {
         let text = getText(node);
-        let href = '#' + text.replace(/['"]+/g, '');
+        let href = '#' + formatId(text);
         let type = node[0].toLowerCase();
         let element = AST.createNode('a', { href }, [text]);
         //console.log(node, text, href, type, element)
@@ -42,11 +46,11 @@ module.exports = (ast) => {
     let list = AST.createNode('ul', { id: 'list' }, tags['h1'])
     let ASTwithID = ast;
     ASTwithID = AST.modifyNodesByName(ASTwithID, 'h1', (node) => {
-        node = AST.setProperty(node, 'id', getText(node))
+        node = AST.setProperty(node, 'id', formatId(getText(node)))
         return node;
     });
     ASTwithID = AST.modifyNodesByName(ASTwithID, 'h2', (node) => {
-        node = AST.setProperty(node, 'id', getText(node))
+        node = AST.setProperty(node, 'id', formatId(getText(node)))
         return node;
     });
     let tocTitle = AST.createNode('h1', { id: 'tableofcontents' }, ['Table Of Contents']);
