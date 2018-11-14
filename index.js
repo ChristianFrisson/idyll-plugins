@@ -1,7 +1,7 @@
 const AST = require('idyll-ast');
 
-const formatId = function(text) {
-    return text.replace(/['"]+/g, '').replace(/[\W_]+/g,"-");
+const formatId = function (text) {
+    return text.replace(/['"]+/g, '').replace(/[\W_]+/g, "-");
 }
 
 const getText = function (node) {

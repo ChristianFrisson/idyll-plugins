@@ -62,3 +62,13 @@ typings/
 
 # vscode settings
 .vscode
+
+test/**/src/node_modules
+test/*/src/.idyll
+test/*/src/build
+
+test/*/.idyll
+test/*/build
+
+test/**/src/build
+test/**/src/.idyll

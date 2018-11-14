@@ -1,0 +1,21 @@
+{
+  "name": "basic-project",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "idyll index.idyll --watch",
+    "build": "idyll index.idyll"
+  },
+  "idyll": {
+    "compiler": {
+      "postProcessors": [
+        "idyll-plugin-table-of-contents"
+      ]
+    }
+  },
+  "dependencies": {
+    "idyll": "^3.11.1"
+  },
+  "devDependencies": {
+    "idyll-plugin-table-of-contents": "../../../"
+  }
+}

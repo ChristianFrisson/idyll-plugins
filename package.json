@@ -4,16 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
-  "author": "",
+  "authors": [
+    "Matthew Conlen",
+    "Pavan Kumar",
+    "Christian Frisson"
+  ],
   "license": "ISC",
   "dependencies": {
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "idyll-ast": "^1.3.1",
-    "react": "^16.3.2",
+    "idyll-ast": "^1.5.1",
     "react-dom": "^16.3.2"
+  },
+  "devDependencies": {
+    "idyll": "^3.11.1",
+    "jest": "^23.6.0",
+    "react": "^16.6.3",
+    "rimraf": "^2.6.2"
   }
 }
